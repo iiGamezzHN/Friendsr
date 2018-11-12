@@ -25,4 +25,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     ArrayList<Friend> friends = new ArrayList<>();
+
+    FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
 }

@@ -21,6 +21,10 @@ public class FriendsAdapter extends ArrayAdapter<Friend> {
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.grid_item, parent, false);
         }
 
+        convertView.findViewById(0);
+
+        getContext().getDrawable(0);
+
         return convertView;
     }
 }
