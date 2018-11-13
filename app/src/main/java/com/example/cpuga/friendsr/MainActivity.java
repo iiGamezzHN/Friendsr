@@ -2,6 +2,7 @@ package com.example.cpuga.friendsr;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -27,4 +28,5 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<Friend> friends = new ArrayList<>();
 
     FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
+
 }
