@@ -1,32 +1,51 @@
 package com.example.cpuga.friendsr;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
+
+    ArrayList<Friend> friends = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Friend Aang = new Friend("Aang", "Airbender",getResources().getIdentifier("aang","drawable","android:drawable"));
-        Friend Katara = new Friend("Katara", "Waterbender",getResources().getIdentifier("katara","drawable","android:drawable"));
-        Friend Sokka = new Friend("Sokka", "Warrior",getResources().getIdentifier("sokka","drawable","android:drawable"));
-        Friend Toph = new Friend("Toph", "Earthbender",getResources().getIdentifier("toph","drawable","android:drawable"));
-        Friend Zuko = new Friend("Zuko", "Firebender",getResources().getIdentifier("zuko","drawable","android:drawable"));
-        Friend Iroh = new Friend("Iroh", "Firebender",getResources().getIdentifier("iroh","drawable","android:drawable"));
-        Friend Azula = new Friend("Azula", "Princess",getResources().getIdentifier("azula","drawable","android:drawable"));
-        Friend Ozai = new Friend("Ozai", "Firelord",getResources().getIdentifier("ozai","drawable","android:drawable"));
-        Friend Appa = new Friend("Appa", "Steed",getResources().getIdentifier("appa","drawable","android:drawable"));
+        friends.add(new Friend("Aang", "Airbender", R.drawable.aang));
+        friends.add(new Friend("Katara", "Waterbender", R.drawable.katara));
+        friends.add(new Friend("Sokka", "Warrior", R.drawable.sokka));
+        friends.add(new Friend("Toph", "Earthbender", R.drawable.toph));
+        friends.add(new Friend("Zuko", "Firebender", R.drawable.zuko));
+        friends.add(new Friend("Iroh", "Firebender", R.drawable.iroh));
+        friends.add(new Friend("Azula", "Princess", R.drawable.azula));
+        friends.add(new Friend("Ozai", "Firelord", R.drawable.ozai));
+        friends.add(new Friend("Appa", "Steed", R.drawable.appa));
 
+        FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
+
+        GridView gridView = findViewById(R.id.gridView);
+        gridView.setAdapter(adapter);
+        gridView.setOnItemClickListener(new GridItemClickListener());
     }
 
-    ArrayList<Friend> friends = new ArrayList<>();
+    private class GridItemClickListener implements AdapterView.OnItemClickListener {
+        @Override
+        public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            intent.putExtra("friend_key",  friends.get(position));
+            startActivity(intent);
 
-    FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
+
+            Log.d("Message", "mofucka");
+        }
+    }
 
 }

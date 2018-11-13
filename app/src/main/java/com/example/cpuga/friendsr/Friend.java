@@ -1,22 +1,26 @@
 package com.example.cpuga.friendsr;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 
 public class Friend implements Serializable {
-    private String name, bio;
-    private int drawableId;
+    @NonNull private final String name, bio;
+    private final int drawableId;
     private float rating;
 
-    public Friend(String name, String bio, int drawableId) {
+    Friend(@NonNull String name, @NonNull String bio, int drawableId) {
         this.name = name;
         this.bio = bio;
         this.drawableId = drawableId;
     }
 
+    @NonNull
     public String getName() {
         return name;
     }
 
+    @NonNull
     public String getBio() {
         return bio;
     }
