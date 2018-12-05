@@ -29,11 +29,13 @@ public class ProfileActivity extends AppCompatActivity {
 
         // Set name
         TextView name = findViewById(R.id.profile_name);
-        name.setText(friend.getName());
+        String nameFinal = "Name: " + friend.getName();
+        name.setText(nameFinal);
 
         // Set bio
         TextView bio = findViewById(R.id.profile_bio);
-        bio.setText(friend.getBio());
+        String bioFinal = "Role: " + friend.getBio();
+        bio.setText(bioFinal);
 
 
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
