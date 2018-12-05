@@ -27,7 +27,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0"
             android:numStars="5"
             android:stepSize="0.5" />
 
@@ -37,8 +36,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="8dp"
-            android:layout_weight="0"
-            android:text="TextView"
+            android:text=""
             android:textSize="30sp" />
 
         <TextView
@@ -46,8 +44,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_weight="0"
-            android:text="TextView"
             android:textSize="30sp" />
     </LinearLayout>
 
