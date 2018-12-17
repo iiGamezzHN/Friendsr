@@ -13,8 +13,11 @@ import android.widget.TextView;
 import java.util.ArrayList;
 
 public class FriendsAdapter extends ArrayAdapter<Friend> {
+    /**
+     * This class is for converting the friends array to the gridview
+     */
 
-    private ArrayList <Friend>  friends;
+    private ArrayList<Friend> friends;
 
     public FriendsAdapter(Context context, int resource, ArrayList<Friend> friends) {
         super(context, resource, friends);

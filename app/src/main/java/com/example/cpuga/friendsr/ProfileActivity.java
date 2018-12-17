@@ -15,8 +15,10 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
+        // Get clicked friend from intent
         final Friend friend = (Friend) getIntent().getSerializableExtra("friend_key");
 
+        // Set detail from friend to views
         final SharedPreferences.Editor editor = getSharedPreferences(PREFS_NAME, MODE_PRIVATE).edit();
         RatingBar ratingBar = findViewById(R.id.ratingBar);
         SharedPreferences prefs = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
@@ -37,7 +39,7 @@ public class ProfileActivity extends AppCompatActivity {
         String bioFinal = "Role: " + friend.getBio();
         bio.setText(bioFinal);
 
-
+        // Set rating on ratingbar
         ratingBar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
             @Override
             public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {

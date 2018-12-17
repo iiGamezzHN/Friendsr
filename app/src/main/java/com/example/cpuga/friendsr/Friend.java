@@ -5,7 +5,12 @@ import android.support.annotation.NonNull;
 import java.io.Serializable;
 
 public class Friend implements Serializable {
-    @NonNull private final String name, bio;
+    /**
+     * This class if for making the Friend objects
+     */
+
+    @NonNull
+    private final String name, bio;
     private final int drawableId;
     private float rating;
 
@@ -15,6 +20,7 @@ public class Friend implements Serializable {
         this.drawableId = drawableId;
     }
 
+    // Getters and setters
     @NonNull
     public String getName() {
         return name;

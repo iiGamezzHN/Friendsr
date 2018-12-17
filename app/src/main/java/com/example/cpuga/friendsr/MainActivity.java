@@ -19,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Add friends to the ArrayList
         friends.add(new Friend("Aang", "Airbender", R.drawable.aang));
         friends.add(new Friend("Katara", "Waterbender", R.drawable.katara));
         friends.add(new Friend("Sokka", "Warrior", R.drawable.sokka));
@@ -32,19 +33,17 @@ public class MainActivity extends AppCompatActivity {
         FriendsAdapter adapter = new FriendsAdapter(this, R.layout.grid_item, friends);
 
         GridView gridView = findViewById(R.id.gridView);
-        gridView.setAdapter(adapter);
-        gridView.setOnItemClickListener(new GridItemClickListener());
+        gridView.setAdapter(adapter);                                   // Set adapter to GridView
+        gridView.setOnItemClickListener(new GridItemClickListener());   // Set listener to GridView
     }
 
+    // Go to DetailActivity when clicking on a friend
     private class GridItemClickListener implements AdapterView.OnItemClickListener {
         @Override
         public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
             Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
-            intent.putExtra("friend_key",  friends.get(position));
+            intent.putExtra("friend_key", friends.get(position));
             startActivity(intent);
-
-
-            Log.d("Message", "mofucka");
         }
     }
 
